@@ -15,61 +15,6 @@ def x():
 
 @task()
 def create_file(n, out: Output):
-    """.
-    Just create_file - 1
-    (Works)
-    1. cloudpickle.dumps(f)
-
-    OR
-
-    (Works)
-    1. cloudpickle.register_pickle_by_value(f.__module__)
-    2. cloudpickle.dumps(f)
-
-    OR
-
-    (Works)
-    1. cloudpickle.dumps(f)
-    2. cloudpickle.register_pickle_by_value(f.__module__)
-
-    With x()
-
-    (Works)
-    1. cloudpickle.register_pickle_by_value(f.__module__)
-    2. cloudpickle.dumps(f)
-    3. cloudpickle.dumps(pypegasus_example.x)
-
-    OR
-
-    (Works)
-    1. cloudpickle.register_pickle_by_value(f.__module__)
-    2. cloudpickle.dumps(f)
-
-    With mod1.y()
-
-    (Works)
-    1. cloudpickle.register_pickle_by_value(f.__module__)
-    2. cloudpickle.register_pickle_by_value(pypegasus_example.mod1)
-    3. cloudpickle.dumps(f)
-
-    With mod2.y()
-
-    (Works)
-    1. cloudpickle.register_pickle_by_value(f.__module__)
-    2. cloudpickle.register_pickle_by_value(pypegasus_example.mod1)
-    2. cloudpickle.register_pickle_by_value(pypegasus_example.mod2)
-    3. cloudpickle.dumps(f)
-
-    Notes:
-
-    1. Main function before any other function
-    2. register_pickle_by_value module before dumps of a function
-    3. No need to dumps multiple function from the same module
-    4. Don't interleave modules and functions
-    5. Only dumps the main function, but register_pickle_by_value all referenced modules
-    6. Module order doesn't matter
-    7. Parent module is not auto registered
-    """
     x()
     mod1.y()
     y()
