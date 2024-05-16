@@ -8,8 +8,7 @@
 
 ```sh
 pip3 install git+https://github.com/pegasus-isi/pypegasus
-# OR
-pip3 install -e ../pypegasus .
+pip3 install -e .
 ```
 
 # Workflow Example
